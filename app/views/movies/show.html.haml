@@ -1,0 +1,25 @@
+%p
+  #notice
+
+%p タイトル
+  = @movie.title
+
+%p 監督
+  = @movie.director
+
+- if @movie.reviews.count > 0
+  %h2 
+    = "投稿されたレビュー#{@movie.reviews.count}件"
+    - @movie.reviews.each do |review|
+      .reviews-username
+        = "#{review.user.nickname}さん"
+      .reviws-body
+        = review.body
+- else
+  %h2 
+    投稿されたレビューはありません
+
+= link_to "Edit", edit_movie_path(@movie)
+= link_to "Back", root_path
+
+

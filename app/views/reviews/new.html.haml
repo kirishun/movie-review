@@ -1,0 +1,11 @@
+%h2 
+  = "#{@movie.title}への新規レビュー"
+
+  = form_for [@movie, @review] do |f|
+    - if @review.errors.any?
+      - @review.errors.full_messages.each do |msg|
+        %li{style: "color: red;"}
+          = msg
+    = f.label :レビュー内容
+    = f.text_area :body
+    = f.submit

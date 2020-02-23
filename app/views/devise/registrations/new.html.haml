@@ -1,0 +1,24 @@
+-# = render "/shared/header"
+
+.single-main
+  .login-single-container
+    .login-single-head
+      アカウントをお持ちの方はこちら
+      = link_to new_user_session_path,class:"user-newsession" do
+        ログイン
+    = form_for(resource, as: resource_name, url: registration_path(resource_name),class: "login-single-innner") do |f|
+      .login-single-content
+        %h2 新規登録画面
+        .form-group
+          = f.label :ニックネーム
+          = f.text_field :nickname, autofocus: true, placeholder: "ニックネームを入力",required: "required", class: 'login-input-default'
+        .form-group
+          = f.label :メールアドレス
+          = f.text_field :email, autofocus: true, placeholder: "メールアドレスを入力",required: "required", class: 'login-input-default'
+        .form-group
+          = f.label :パスワード
+          = f.password_field :password, autocomplete: "new-password", placeholder: "パスワードを入力",required: "required", class: "login-input-default"
+        .form-group
+          = f.submit "アカウント作成", class: "user-login"
+
+-# = render "/shared/footer"

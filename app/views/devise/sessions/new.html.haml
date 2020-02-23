@@ -1,0 +1,21 @@
+-# = render "/shared/header"
+
+.single-main
+  .login-single-container
+    .login-single-head
+      アカウントをお持ちでない方はこちら
+      = link_to new_user_registration_path,class:"user-newsession" do
+        新規会員登録
+    = form_for(resource, as: resource_name, url: "#", html: {id: "new_user_form",class: 'login-single-inner'}) do |f|
+      .login-single-content
+        %h2 ユーザーログイン
+        .form-group
+          = f.label :メールアドレス
+          = f.text_field :email, autofocus: true, placeholder: "メールアドレス",required: "required", class: 'login-input-default'
+        .form-group
+          = f.label :パスワード
+          = f.password_field :password, autocomplete: "new-password", placeholder: "パスワード",required: "required", class: "login-input-default"
+        .form-group
+          = f.submit "ログイン", class: "user-login"
+
+-# = render "/shared/footer"

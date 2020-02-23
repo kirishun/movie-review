@@ -1,0 +1,104 @@
+.write-header {
+  height: 80px;
+  width: 100%;
+  background-color: #f8f8f8;
+  .write-container {
+    padding: 5px 30px;
+    .write-title{
+      text-align: center;
+      font-size: 40px;
+      padding-top: 15px;
+      a {
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.write-contents {
+  background-color: #f8f8f8;
+  .container {
+    max-width: 800px;
+    height: 100%;
+    margin: 0 auto;
+    background-color:white;
+    &__title {
+      padding-top: 10px;
+      padding-left: 200px;
+      padding-right: 200px;
+      text-align: center;
+      h2 {
+        text-align: center;
+        font-size: 25px;
+        border-bottom: 1px solid #ffa500;
+      }
+    }
+    &__text {
+      padding: 0 30px 30px 30px;
+      label {
+        display: block;
+        margin-top: 30px;
+      }
+      .input-default{
+        width: 100%;
+        margin: 0 auto;
+        height: 48px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        padding: 2px 16px 8px;
+        box-sizing: border-box;
+      }
+      .input-area {
+        width: 100%;
+        margin: 0 auto;
+        height: 144px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        padding: 10px 16px 8px;
+        box-sizing: border-box;
+      }
+      .write-btn {
+        margin: 0 auto;
+        margin-top: 30px;
+        background: #ffa500;
+        border: 1px solid #ffa500;
+        color: #fff;
+        display: block;
+        width: 80%;
+        line-height: 48px;
+        font-size: 14px;
+        transition: all ease-out .3s;
+        cursor: pointer;
+        text-align: center;
+        a{
+          color:white;
+        }
+      }
+    }
+  }
+}
+
+.write-footer {
+  height: 80px;
+  width: 100%;
+  background-color: #f8f8f8;
+  .write-container {
+    padding: 5px 30px;
+    .write-title{
+      text-align: center;
+      font-size: 40px;
+      padding-top: 15px;
+      a {
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
+}
