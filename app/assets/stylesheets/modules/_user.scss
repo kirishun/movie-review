@@ -1,19 +1,20 @@
 .single-main {
   display: block;
-  background-color: #f8f8f8;
+  background-color: #444444;
   .login-single-container {
     max-width: 600px;
     margin: 0 auto;
-    background-color:white;
+    background-color:black;
     .login-single-head {
       padding: 40px 64px;
       font-size: 14px;
       line-height: 1.5;
       text-align: center;
       font-weight: bold;
+      color: white;
     }
     a{
-      color:black;
+      color:white;
       text-decoration: none;
      }
       .user-newsession {
@@ -47,9 +48,11 @@
         font-size: 20px;
         font-weight: bold;
         text-align: center;
+        color: white;
       }
       .form-group{
         padding-top: 30px;
+        color: white;
         .login-input-default {
           width: 90%;
           margin: 8px 0 0;
