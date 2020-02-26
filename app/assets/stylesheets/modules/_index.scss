@@ -1,0 +1,123 @@
+.header {
+  height: 120px;
+  width: 100%;
+  background-color: #444444;
+  border-bottom: 2px solid #444444;
+  .header-container {
+    padding: 5px 30px;
+    .header-title{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+    .header-box {
+      display: flex;
+      margin: 0 auto;
+      max-width: 800px;
+      text-align: center;
+      line-height: 20px;
+      padding-top: 15px;
+      &__search {
+        padding-left: 50px;
+        form {
+          display: flex;
+          .search-form {
+            width: 400px;
+            height: 40px;
+            display: flex;
+          }
+          .search-box {
+            width: 50px;
+            height: 43px;
+            margin-left: 10px;
+            background-color:#ffa500;
+            color: white;
+            text-align: center;
+            i {
+              font-size: 25px;
+            }
+          }
+        }
+      }
+      &__mypage {
+        width: 50px;
+        height: 40px;
+        margin-left: 150px;
+        background-color:white;
+        border-radius: 10px;
+        a {
+          font-size: 30px;
+          .mypage-icon {
+            color: #444444;
+            line-height: 40px;
+          }
+        }
+      
+      }
+    }
+  }
+}
+
+.main {
+  background-color: #444444;
+  height: 100%;
+  .main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color:black;
+    .main-name {
+      text-align: center;
+      font-size: 30px;
+      padding-top: 20px;
+      margin-left: 200px;
+      margin-right: 200px;
+      border-bottom: 1px solid white;
+      color: white;
+    }
+    .movies {
+      display: flex;
+      flex-wrap: wrap;
+      .movie {
+        padding-left: 80px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        .movie-image {
+          border: 1px solid lightgray;
+        }
+      }
+    }
+  }
+}
+
+.post {
+  width: 100px;
+  height: 110px;
+  background-color: #0068d9;
+  text-align: center;
+  border-radius: 8%;
+  bottom: 32px;
+  right: 20px;
+  position: fixed;
+  padding: 15px;
+  transition: all ease-out .4s;
+  &:hover {
+    background-color: #004ba0;
+  }
+  a {
+    text-decoration: none;
+  }
+  &__text{
+    color: white;
+    display: block;
+    font-size: 20px;
+    margin-bottom: 5px;
+    .icon {
+      font-size: 60px;
+      color: white;
+    }
+  }
+}

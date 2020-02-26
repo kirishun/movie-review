@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+
+  devise_for :users
+  root 'movies#index'
+
   resources :movies do
     resources :reviews
   end
-
-  devise_for :users
-  root 'movie#index'
+  
+  resources :users, only: [:edit, :update]
 end

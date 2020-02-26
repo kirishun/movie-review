@@ -1,25 +1,48 @@
-%p
-  #notice
+= render "/shared/header"
 
-%p タイトル
-  = @movie.title
+.show-contents
+  .show-container
+    .show-image
+      = image_tag @movie.image.url, size: "250x300"
+    .show-text
+      = link_to 'ムービーの内容を編集する', edit_movie_path(@movie),class: "edit-btn"
+      = link_to 'ムービーを削除する',"/movies/#{@movie.id}", method: :delete, class: "delete-btn" 
+    .show-text
+      .left-title
+        タイトル
+      .right-text
+        = @movie.title
+    .show-text
+      .left-title
+        監督
+      .right-text
+        = @movie.director
+    .show-review
+      .left-title
+        レビュー
+      .right-text
+        - if @movie.reviews.count > 0
+          %h2 
+            = "投稿されたレビュー#{@movie.reviews.count}件"
+          - @movie.reviews.each do |review|
+            .review-box
+              .review-box__username
+                = "投稿者 : #{review.user.nickname}さん"
+              .review-box__body
+                = simple_format(review.body)
+              - if current_user == review.user
+                = link_to "編集", "/movies/#{@movie.id}/reviews/#{review.id}/edit",class: "review-edit"
+                = link_to "削除", "/movies/#{@movie.id}/reviews/#{review.id}",method: :delete, class: "review-delete"
+        - else
+          %h2 
+            投稿されたレビューはありません
+.post-review
+  = link_to new_movie_review_path(@movie) do
+    .post-review__text
+      レビューを投稿する
+      = icon('fas', 'smile-beam', class: 'icon')
+      
 
-%p 監督
-  = @movie.director
-
-- if @movie.reviews.count > 0
-  %h2 
-    = "投稿されたレビュー#{@movie.reviews.count}件"
-    - @movie.reviews.each do |review|
-      .reviews-username
-        = "#{review.user.nickname}さん"
-      .reviws-body
-        = review.body
-- else
-  %h2 
-    投稿されたレビューはありません
-
-= link_to "Edit", edit_movie_path(@movie)
-= link_to "Back", root_path
+= render "/shared/footer"
 
 
