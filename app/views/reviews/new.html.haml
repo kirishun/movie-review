@@ -12,9 +12,21 @@
           - @review.errors.full_messages.each do |msg|
             %li{style: "color: red;"}
               = msg
-        = f.label :レビュー内容, class:'label'
+        .contents
+          レビュー内容
+        .rating 
+          レーティング
+        #rating-form
+        = f.label :コメント, class:'comment'
         = f.text_area :body, class:'input'
         = f.submit '投稿する', class: 'btn'
+ 
       
 
 = render "/shared/footer"
+
+:javascript
+  $('#rating-form').raty({
+  	path: '/assets/',
+  	scoreName: 'review[rating]'
+  });

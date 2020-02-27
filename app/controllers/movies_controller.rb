@@ -1,12 +1,16 @@
 class MoviesController < ApplicationController
 
-  before_action :set_movie, only: [:show]
-
   def index
     @movies = Movie.all.order("created_at DESC")
   end
 
   def show
+    @movie = Movie.find(params[:id])
+    if @movie.reviews.blank?
+      @average_review = 0
+    else
+      @average_review = @movie.reviews.average(:rating).round(2)
+    end
   end
 
   def new
@@ -36,8 +40,5 @@ class MoviesController < ApplicationController
     params.require(:movie).permit(:title, :director, :image)
   end
 
-  def set_movie
-    @movie = Movie.find(params[:id])
-  end
 
 end

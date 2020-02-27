@@ -4,6 +4,7 @@
   .show-container
     .show-image
       = image_tag @movie.image.url, size: "250x300"
+      .average-review-rating{"data-score": @average_review}
     .show-text
       = link_to 'ムービーの内容を編集する', edit_movie_path(@movie),class: "edit-btn"
       = link_to 'ムービーを削除する',"/movies/#{@movie.id}", method: :delete, class: "delete-btn" 
@@ -29,6 +30,7 @@
               .review-box__username
                 = "投稿者 : #{review.user.nickname}さん"
               .review-box__body
+                .review-rating{"data-score": @average_review}
                 = simple_format(review.body)
               - if current_user == review.user
                 = link_to "編集", "/movies/#{@movie.id}/reviews/#{review.id}/edit",class: "review-edit"
@@ -44,5 +46,24 @@
       
 
 = render "/shared/footer"
+
+:javascript
+  $('.review-rating').raty({
+  	readOnly: true,
+  	score: function() {
+  		return $(this).attr('data-score');
+  	},
+  	path: '/assets/'
+  });
+
+:javascript
+  $('.average-review-rating').raty({
+  	readOnly: true,
+  	path: '/assets/',
+  	score: function() {
+  		return $(this).attr('data-score')
+  	}
+  });
+
 
 

@@ -3,7 +3,7 @@
 .review-contents
   .review-container
     .review-title
-      = "「#{@movie.title}」への新規レビュー"
+      = "「#{@movie.title}」へのレビューを編集"
     .review-image
       = image_tag @movie.image.url, size: "250x300"
     .review-text
@@ -12,9 +12,21 @@
           - @review.errors.full_messages.each do |msg|
             %li{style: "color: red;"}
               = msg
-        = f.label :レビュー内容, class:'label'
+        .contents
+          レビュー内容
+        .rating 
+          レーティング
+        #rating-form
+        = f.label :コメント, class:'comment'
         = f.text_area :body, class:'input'
         = f.submit '更新する', class: 'btn'
+ 
       
 
 = render "/shared/footer"
+
+:javascript
+  $('#rating-form').raty({
+  	path: '/assets/',
+  	scoreName: 'review[rating]'
+  });

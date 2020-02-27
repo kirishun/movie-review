@@ -12,7 +12,8 @@ class ReviewsController < ApplicationController
     @review = Review.new(
       body: review_params[:body],
       user_id: current_user.id,
-      movie_id: params[:movie_id]
+      movie_id: params[:movie_id],
+      rating: review_params[:rating],
     )
 
     if @review.save
@@ -29,7 +30,8 @@ class ReviewsController < ApplicationController
     if @review.update(
       body: review_params[:body],
       user_id: current_user.id,
-      movie_id: params[:movie_id]
+      movie_id: params[:movie_id],
+      rating: review_params[:rating],
     )
       redirect_to movie_path(@review.movie)
     else
@@ -48,7 +50,7 @@ class ReviewsController < ApplicationController
   private
   
   def review_params
-    params.require(:review).permit(:body, :movie_id, :user_id)
+    params.require(:review).permit(:body, :movie_id, :user_id, :rating)
   end
 
   def set_movie
