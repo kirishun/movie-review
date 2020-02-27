@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
 
-  before_action :set_movie, only: [ :edit, :update, :show, :destroy]
+  before_action :set_movie, except: :index
 
   def index
     @movies = Movie.all.order("created_at DESC")
