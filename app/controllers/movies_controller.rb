@@ -22,6 +22,14 @@ class MoviesController < ApplicationController
     end
   end
 
+  def search
+    @movies = Movie.search(params[:keyword]).order("created_at DESC")
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   private
 
   def movie_params

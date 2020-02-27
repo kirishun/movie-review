@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   resources :movies do
     resources :reviews
+    collection do
+      get 'search'
+    end
   end
   
   resources :users, only: [:edit, :update]

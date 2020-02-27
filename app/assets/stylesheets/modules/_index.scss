@@ -1,5 +1,5 @@
 .header {
-  height: 120px;
+  height: 100%;
   width: 100%;
   background-color: #444444;
   border-bottom: 2px solid #444444;
@@ -22,7 +22,7 @@
       line-height: 20px;
       padding-top: 15px;
       &__search {
-        padding-left: 50px;
+        padding-left: 130px;
         form {
           display: flex;
           .search-form {
@@ -34,7 +34,7 @@
             width: 50px;
             height: 43px;
             margin-left: 10px;
-            background-color:#ffa500;
+            background-color:#0068d9;
             color: white;
             text-align: center;
             i {
