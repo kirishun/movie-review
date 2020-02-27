@@ -30,7 +30,7 @@
               .review-box__username
                 = "投稿者 : #{review.user.nickname}さん"
               .review-box__body
-                .review-rating{"data-score": @average_review}
+                .review-rating{"data-score": review.rating}
                 = simple_format(review.body)
               - if current_user == review.user
                 = link_to "編集", "/movies/#{@movie.id}/reviews/#{review.id}/edit",class: "review-edit"
