@@ -52,3 +52,6 @@ production:
   database: movie-review_production
   username: movie-review
   password: <%= ENV['MOVIE-REVIEW_DATABASE_PASSWORD'] %>
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
