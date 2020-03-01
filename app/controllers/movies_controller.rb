@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
-
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_movie, only: [:edit, :update, :show, :destroy]
 
   def index
@@ -64,5 +65,10 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
   end
 
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
+  end
 
 end
