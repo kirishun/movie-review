@@ -13,8 +13,8 @@ if Rails.env.production?
       aws_secret_access_key: ENV['AWS_IAM_ACCESS_KEY'],
       path_style: true
     }
-    config.fog_directory     =  'chat-space2020.01.07'
-    config.asset_host = 'https://chat-space2020.01.07.s3.amazonaws.com'
+    config.fog_directory  = 'chat-space2020.01.07'
+  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/chat-space2020.01.07'
   end
 
   # 日本語ファイル名の設定
