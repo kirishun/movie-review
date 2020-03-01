@@ -5,19 +5,16 @@ require 'carrierwave/storage/fog'
 if Rails.env.production?
   CarrierWave.configure do |config|
     config.fog_provider = 'fog/aws'
-    config.fog_directory     =  ENV['AWS_S3_BUCKET']
     config.fog_credentials = {
+      # Amazon S3用の設定
       provider: 'AWS',
-      aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-      aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-      region: ENV['AWS_REGION'],
+      region: ENV['AWS_S3_REGION'],
+      aws_access_key_id: ENV['AWS_IAM_ACCESS_KEY_ID'],
+      aws_secret_access_key: ENV['AWS_IAM_ACCESS_KEY'],
       path_style: true
     }
-  else
-    config.storage :file
-    config.enable_processing = false if Rails.env.test?
+    config.fog_directory     =  ENV['AWS_S3_BUCKET']
   end
-end
 
   # 日本語ファイル名の設定
   CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
