@@ -18,7 +18,6 @@ if Rails.env.production?
     config.storage :file
     config.enable_processing = false if Rails.env.test?
   end
-end
 
   # 日本語ファイル名の設定
   CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
