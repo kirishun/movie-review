@@ -11,8 +11,12 @@
           = button_tag type: 'submit', class: "search-box" do
             = icon('fas', 'search')
       .header-box__mypage
-        = link_to edit_user_path(current_user) do
-          = icon('fas', 'user', class: 'mypage-icon')
+        - if user_signed_in?
+          = link_to edit_user_path(current_user) do
+            = icon('fas', 'user', class: 'mypage-icon')
+        - else
+          = link_to new_user_registration_path do
+            = icon('fas', 'user', class: 'mypage-icon')
 
 .main
   .main-container
