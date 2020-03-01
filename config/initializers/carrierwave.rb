@@ -14,7 +14,11 @@ if Rails.env.production?
       path_style: true
     }
     config.fog_directory     =  ENV['AWS_S3_BUCKET']
+  else
+    config.storage :file
+    config.enable_processing = false if Rails.env.test?
   end
+end
 
   # 日本語ファイル名の設定
   CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
