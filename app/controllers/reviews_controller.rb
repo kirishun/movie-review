@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_movie, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_review, only: [:edit, :update, :destroy]
 
@@ -60,12 +59,6 @@ class ReviewsController < ApplicationController
 
   def set_review
     @review = Review.find(params[:id])
-  end
-
-  protected
-
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
   end
 
 end
