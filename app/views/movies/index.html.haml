@@ -12,8 +12,11 @@
             = icon('fas', 'search')
       .header-box__mypage
         - if user_signed_in?
-          = link_to edit_user_path(current_user) do
-            = icon('fas', 'user', class: 'mypage-icon')
+          - if current_user.email == "test@gmail.com"
+            = link_to "ログアウト",destroy_user_session_path, method: :delete
+          - else 
+            = link_to edit_user_path(current_user) do
+              = icon('fas', 'user', class: 'mypage-icon')
         - else
           = link_to new_user_registration_path do
             = icon('fas', 'user', class: 'mypage-icon')

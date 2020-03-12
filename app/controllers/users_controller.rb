@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :forbid_test_user, {only: [:edit,:update]}
+
   def edit
   end
 
@@ -15,6 +17,13 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:nickname, :email)
+  end
+
+  def forbid_test_user
+    if current_user.email == "test@gmail.com"
+      flash[:notice] = "テストユーザーのため変更できません"
+      redirect_to root_path
+    end
   end
 
 end

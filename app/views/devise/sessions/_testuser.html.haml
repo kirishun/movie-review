@@ -1,0 +1,8 @@
+= form_for(resource, as: resource_name,class: 'login-single-inner', url: session_path(resource_name)) do |f|
+  .login-single-content
+    %h2 簡単ログイン
+    .field
+      =f.hidden_field :email ,value: "test@gmail.com"
+      =f.hidden_field :password ,value: "testtest"
+    .form-group
+      = f.submit "かんたんログイン", class: "easy-login"

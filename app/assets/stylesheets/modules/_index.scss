@@ -50,10 +50,12 @@
         background-color:white;
         border-radius: 10px;
         a {
-          font-size: 30px;
+          text-decoration: none;
+          color: #444444;
           .mypage-icon {
             color: #444444;
             line-height: 40px;
+            font-size: 30px;
           }
         }
       
