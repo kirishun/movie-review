@@ -13,7 +13,7 @@
       .header-box__mypage
         - if user_signed_in?
           - if current_user.email == "test@gmail.com"
-            = link_to "ログアウト",destroy_user_session_path, method: :delete do
+            = link_to destroy_user_session_path, method: :delete do
               = icon('fas', 'sign-out-alt', class: 'mypage-icon')
           - else 
             = link_to edit_user_path(current_user) do
